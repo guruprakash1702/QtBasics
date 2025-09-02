@@ -1,0 +1,3 @@
+/workspace/QtBasics/build/CMakeFiles/QtBasics.dir
+/workspace/QtBasics/build/CMakeFiles/edit_cache.dir
+/workspace/QtBasics/build/CMakeFiles/rebuild_cache.dir

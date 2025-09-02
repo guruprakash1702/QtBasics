@@ -2,14 +2,16 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Setup Qt App
-    init: |
-      mkdir -p build
-      cd build
-      qmake ../QtBasics.pro || echo "qmake will run later"
+  - init: mkdir -p build
     command: |
-      echo "Workspace ready 🚀"
+      cd build
+      cmake .. -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6
+      make -j$(nproc)
+  - command: |
+      xpra start :100 --start-child=/workspace/QtBasics/build/QtBasics --bind-tcp=0.0.0.0:14500 --html=on
+      echo "Qt GUI running on port 14500"
 
 ports:
-  - port: 6080
+  - port: 14500
     onOpen: open-preview
+    visibility: public
