@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Setup Qt App
+    init: |
+      mkdir -p build
+      cd build
+      qmake ../QtBasics.pro || echo "qmake will run later"
+    command: |
+      echo "Workspace ready 🚀"
+
+ports:
+  - port: 6080
+    onOpen: open-preview
