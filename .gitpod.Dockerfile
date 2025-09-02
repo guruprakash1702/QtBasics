@@ -16,3 +16,11 @@ RUN sudo apt-get update && sudo apt-get install -y \
     python3-websockify \
     && sudo apt-get clean \
     && sudo rm -rf /var/lib/apt/lists/*
+# Install GUI runtime + VNC tools
+RUN sudo apt-get update && sudo apt-get install -y \
+    xpra \
+    novnc \
+    python3-websockify \
+    libgl1-mesa-dev \
+    && sudo apt-get clean \
+    && sudo rm -rf /var/lib/apt/lists/*
